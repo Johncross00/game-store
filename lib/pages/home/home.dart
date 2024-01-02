@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_store/pages/home/widgets/header.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -24,7 +25,11 @@ class HomePage extends StatelessWidget {
             child: Image.asset('assets/images/bg_liquid.png',
               width: 200,),)
           ),
-          Container(),
+          Column(
+            children: [
+              HeaderSection()
+            ],
+          ),
         ],
         ),
       ),
