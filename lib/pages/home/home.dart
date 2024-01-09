@@ -11,6 +11,8 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFF5f67EA),
       body: SingleChildScrollView(
+        padding: EdgeInsets.all(1),
+        scrollDirection: Axis.vertical,
         child: Stack(
           children: <Widget>[
             Transform(
@@ -32,12 +34,15 @@ class HomePage extends StatelessWidget {
                     width: 200,
                   ),
                 )),
-            Column(
-              children: [
-                HeaderSection(),
-                SearchSection(),
-                CategorySection(),
-              ],
+            Container(
+              padding: EdgeInsets.all(1),
+              child: Column(
+                children: [
+                  HeaderSection(),
+                  SearchSection(),
+                  CategorySection(),
+                ],
+              ),
             ),
           ],
         ),
@@ -78,7 +83,7 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10)),
                     child: Icon(
                       Icons.home_rounded,
-                      size: 50,
+                      size: 40,
                     ),
                   ),
                 ),
@@ -92,7 +97,7 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10)),
                     child: Icon(
                       Icons.more_horiz_rounded,
-                      size: 50,
+                      size: 40,
                     ),
                   ),
                 ),
@@ -106,7 +111,7 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10)),
                     child: Icon(
                       Icons.play_arrow_rounded,
-                      size: 50,
+                      size: 40,
                     ),
                   ),
                 ),
@@ -120,13 +125,14 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10)),
                     child: Icon(
                       Icons.auto_stories_rounded,
-                      size: 50,
+                      size: 40,
                     ),
                   ),
                 ),
               ],
             ),
           ),
-        ));
+        )
+    );
   }
 }

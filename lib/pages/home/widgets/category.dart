@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_store/pages/home/widgets/newest.dart';
 import 'package:game_store/pages/home/widgets/popular.dart';
 
 class CategorySection extends StatelessWidget {
@@ -29,49 +30,61 @@ class CategorySection extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 500,
-      decoration: BoxDecoration(
-          color: Color(0xFFF6F8FF),
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20)
-        )
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 20,),
-          SizedBox(
-            height: 140,
-            child: ListView.separated(
-              padding: EdgeInsets.symmetric(horizontal: 25),
-              scrollDirection: Axis.horizontal,
-                itemBuilder: ( (context, index) => Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                        color: categories[index]['color'] as Color),
-                        child: Icon(categories[index]['icon'] as IconData, color: Colors.white, size: 40,)
-                    ),
-                    Text(categories[index]['title'] as String, style: TextStyle(color: Colors.black.withOpacity(0.7),
-                    fontWeight: FontWeight.bold, fontSize: 16),)
-                  ],
-                )
-                ),
-                separatorBuilder: ((context, index) => SizedBox(width: 33,)),
-                itemCount: categories.length
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      padding: EdgeInsets.all(5),
+      child: Container(
+        height: 500,
+        decoration: BoxDecoration(
+            color: Color(0xFFF6F8FF),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20)
+          )
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 20,),
+            SizedBox(
+              height: 140,
+              child: ListView.separated(
+                padding: EdgeInsets.symmetric(horizontal: 25),
+                scrollDirection: Axis.horizontal,
+                  itemBuilder: ( (context, index) => Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                          color: categories[index]['color'] as Color),
+                          child: Icon(categories[index]['icon'] as IconData, color: Colors.white, size: 40,)
+                      ),
+                      Text(categories[index]['title'] as String, style: TextStyle(color: Colors.black.withOpacity(0.7),
+                      fontWeight: FontWeight.bold, fontSize: 16),)
+                    ],
+                  )
+                  ),
+                  separatorBuilder: ((context, index) => SizedBox(width: 33,)),
+                  itemCount: categories.length
+              ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Text("Popular Game", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Text("Popular Game", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)
+              ),
             ),
-          ),
-          PopularGame()
-        ],
+            PopularGame(),
+
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Text("Newest Game", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)
+              ),
+            ),
+            Expanded(child: NewestGame()),
+
+          ],
+        ),
       ),
     );
   }
