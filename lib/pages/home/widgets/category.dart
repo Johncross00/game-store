@@ -32,9 +32,9 @@ class CategorySection extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.all(2),
       child: Container(
-        height: 500,
+        height: 520,
         decoration: BoxDecoration(
             color: Color(0xFFF6F8FF),
           borderRadius: BorderRadius.only(
