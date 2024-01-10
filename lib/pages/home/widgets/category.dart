@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:game_store/pages/home/widgets/newest.dart';
 import 'package:game_store/pages/home/widgets/popular.dart';
@@ -32,7 +33,7 @@ class CategorySection extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        height: 700,
+        height: 750,
         decoration: BoxDecoration(
             color: Color(0xFFF6F8FF),
           borderRadius: BorderRadius.only(
@@ -79,7 +80,8 @@ class CategorySection extends StatelessWidget {
               child: Text("Newest Game", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)
               ),
             ),
-            Expanded(child: NewestGame()),
+            Container(
+                child: Expanded(child: NewestGame())),
       
           ],
         ),
